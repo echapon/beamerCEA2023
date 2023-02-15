@@ -18,6 +18,7 @@
 \RequirePackage[absolute,overlay]{textpos}
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
+\RequirePackage{lettrine}
 
 \newcommand*{\CEAi}{\raisebox{.25ex}{\includegraphics[height=.5ex]{graphics/bullet1.png}}}
 \newcommand*{\CEAii}{\raisebox{.25ex}{\includegraphics[height=.5ex]{graphics/bullet2.png}}}
@@ -96,7 +97,10 @@
     text margin left=\textleftmargin,text margin right=\textrightmargin}
 
 \makeatletter
+% something between scriptsize and tiny
 \newcommand\notsotiny{\@setfontsize\notsotiny\@vipt\@viipt}
+%% Define a HUGE
+\newcommand\HUGE{\@setfontsize\Huge{27}{38}}
 \makeatother
 
 \setbeamerfont{title}{size=\Large, series=\bfseries}
@@ -309,10 +313,10 @@
             };
         \end{tikzpicture}
 
-        \begin{textblock*}{0.7\paperwidth}[0,0](0.15\paperwidth,0.45\paperheight)
-        \textbf{\Huge {\color{CEAred}\insertsectionnumber.} \insertsection}
+        \begin{textblock*}{0.6\paperwidth}[0,0](0.27\paperwidth,0.42\paperheight)
+           \textbf{\HUGE \lettrine[lraise=0.1, nindent=0em, slope=-.5em]{\color{CEAred}\insertsectionnumber.}{}\insertsection}
 
-        \vspace{1ex}\hspace{\widthof{\textbf{\Huge\insertsectionnumber. }}}#1
+        \vspace{2ex} #1
         \end{textblock*}
 
   \end{frame}
@@ -330,12 +334,11 @@
             };
         \end{tikzpicture}
 
-        \begin{textblock*}{0.7\paperwidth}[0,0](0.15\paperwidth,0.45\paperheight)
-        {\color{white}
-        \textbf{\Huge \insertsectionnumber. \insertsection}
+        \begin{textblock*}{0.6\paperwidth}[0,0](0.27\paperwidth,0.42\paperheight)
+           \color{white}
+           \textbf{\HUGE \lettrine[lraise=0.1, nindent=0em, slope=-.5em]{\insertsectionnumber.}{}\insertsection}
 
-        \vspace{1ex}\hspace{\widthof{\textbf{\Huge\insertsectionnumber. }}}#1
-        }
+        \vspace{2ex} #1
         \end{textblock*}
 
   \end{frame}
@@ -355,12 +358,11 @@
             };
         \end{tikzpicture}
 
-        \begin{textblock*}{0.7\paperwidth}[0,0](0.15\paperwidth,0.45\paperheight)
-        {\color{white}
-        \textbf{\Huge {\color{CEAred} \insertsectionnumber.} \insertsection}
+        \begin{textblock*}{0.6\paperwidth}[0,0](0.27\paperwidth,0.42\paperheight)
+           \color{white}
+           \textbf{\HUGE \lettrine[lraise=0.1, nindent=0em, slope=-.5em]{\color{CEAred} \insertsectionnumber.}{}\insertsection}
 
-        \vspace{1ex}\hspace{\widthof{\textbf{\Huge\insertsectionnumber. }}}#1
-        }
+        \vspace{2ex} #1
         \end{textblock*}
 
   \end{frame}
@@ -379,12 +381,11 @@
             };
         \end{tikzpicture}
 
-        \begin{textblock*}{0.7\paperwidth}[0,0](0.15\paperwidth,0.45\paperheight)
-        {\color{white}
-        \textbf{\Huge \insertsectionnumber. \insertsection}
+        \begin{textblock*}{0.6\paperwidth}[0,0](0.27\paperwidth,0.42\paperheight)
+           \color{white}
+           \textbf{\HUGE \lettrine[lraise=0.1, nindent=0em, slope=-.5em]{\insertsectionnumber.}{}\insertsection}
 
-        \vspace{1ex}\hspace{\widthof{\textbf{\Huge\insertsectionnumber. }}}#1
-        }
+        \vspace{2ex} #1
         \end{textblock*}
 
   \end{frame}
