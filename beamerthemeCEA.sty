@@ -169,8 +169,7 @@
         \ifx\inserttitlepagepicture\tempa%
         \pgftext[at=\pgfpoint{0}{0},left,base]{\pgfuseimage{background1}};
     \else%
-        \pgfdeclareimage[interpolate=true,width=\paperwidth,height=\paperheight]{titlepicture}{\inserttitlepagepicture}
-    \pgftext[at=\pgfpoint{0}{0},left,base]{\pgfuseimage{titlepicture}};
+     \pgftext[at=\pgfpoint{0}{0},left,base]{\includegraphics[height=\paperheight,width=\paperwidth]{\inserttitlepagepicture}}
      \pgftext[at=\pgfpoint{0}{0},left,base]{\pgfuseimage{backgroundwhite}};
     \fi%
   \ifnum\thepage>1\relax%
