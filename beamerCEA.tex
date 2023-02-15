@@ -1,0 +1,177 @@
+\documentclass[t,10pt,aspectratio=169]{beamer}
+% load theme and commands
+\usetheme{CEA}
+
+% encoding and language
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+
+% % comment if you do not want a summary at each section
+% \AtBeginSection[]{
+%     \tocframecurrent{Table of contents }
+%     \sepframewhite{Lorem ipsum}
+% }
+
+\begin{document}
+
+% classical beamer stuff
+\title{This is the presentation title }
+\subtitle{and the subtitle}
+\date[28/10/2022]{October 28, 2022 }
+\author{John \textsc{Smith}}
+
+%% logo on title page
+\titlepagelogo{\includegraphics[height=24mm]{graphics/IRFU.pdf}}
+%% also possible to have several logos
+% \titlepagelogo{\includegraphics[height=24mm]{graphics/IRFU.pdf}\hspace{10pt}\includegraphics[height=24mm]{ATLAS_logo_default_RGBHEX.pdf}}
+
+% specific CEA beamer stuff
+\seminar[ICHEP]{International Conference of High Energy Physics}
+
+\CEAmerci{Thank you}
+\CEAcenter{CEA SACLAY}
+\addr{91\,191 Gif-sur-Yvette Cedex\\France}
+\CEAemail{\href{mailto:john.smoth@cea.ch}{\texttt{john.smith@cea.ch}}}
+
+\begin{frame}[plain]
+    \titlepage
+
+\end{frame}
+
+% or with a picture
+\setcounter{page}{1}
+\titlepagepicture{ATLASpicture.jpg}
+\begin{frame}[plain]
+    \titlepage
+
+\end{frame}
+
+\section{The first section}
+ 
+\subsection[Subsection]{First subsection}
+
+\tocframe{Table of contents}
+
+\sepframewhite{Additional text which is really very very long just to see up to where we can go }
+
+\sepframered{Additional text}
+
+\sepframeblack{Additional text}
+
+\sepframeblue{Additional text}
+
+\begin{frame}
+    \frametitle{Lorem ipsum dolor}
+    \framesubtitle{Sous-titre}
+\begin{columns}[t,onlytextwidth]
+\begin{column}{.5\textwidth}
+    Some text in column 1.
+    \begin{itemize}
+        \item bullet 1
+            \begin{itemize}
+                \item sub-bullet 1.1
+                \item sub-bullet 1.2
+            \end{itemize}
+        \item bullet 2
+    \end{itemize}
+\end{column}\begin{column}{.5\textwidth}
+    Some text in column 2.
+    \begin{itemize}
+        \item bullet 3
+            \begin{itemize}
+                \item sub-bullet 3.1
+                \item sub-bullet 3.2
+            \end{itemize}
+        \item bullet 4
+    \end{itemize}
+\end{column}
+\end{columns}
+\vfill
+Some maths :
+%
+\begin{equation}
+\forall \, z \in \mathbb{C}, \, \exp(z) = \sum_{n=0}^{+\infty} \frac{z^n}{n!}~; \qquad%
+ \mathrm{e}^{\mathrm{i}\pi} + 1 = 0~.
+\end{equation}
+%
+\vspace*{\fill}
+\end{frame}
+
+% \end{document}
+
+\subsection[2nd subsection]{Second subsection}
+
+\begin{frame}
+\frametitle{Frame title}
+Some text before block
+\vfill
+\begin{block}{Block title}
+    Block content, with math:
+    $\forall \, u \in \mathcal{H}\!, %
+     \Delta u = \vec{\nabla}\!\cdot\! \left( \vec{\nabla} u \right)$.
+    %
+    \begin{equation*}
+        \int_{\Omega}\! \vec{\nabla}\!\cdot\! \vec{v}  \mathop{}\!\mathrm{d}V =
+        \int_{\partial \Omega}\!\! \vec{v} \cdot \vec{n} \mathop{}\!\mathrm{d}S~; \qquad
+        \int_{\Sigma}\! \vec{\nabla}\!\times\! \vec{w} \mathop{}\!\mathrm{d}S =
+        \oint_{\Gamma}\! \vec{w} \cdot \vec{t} \mathop{}\!\mathrm{d}\gamma~.
+    \end{equation*}
+    % 
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+   \frametitle{Blocks}
+
+   \begin{block}{Normal block}
+      Lorem ipsum
+   \end{block}
+
+   \begin{alertblock}{Alert block}
+      Lorem ipsum
+   \end{alertblock}
+
+   \begin{exampleblock}{Example block}
+      Lorem ipsum
+   \end{exampleblock}
+
+   \begin{itemize}
+      \item \structure{structure} text
+      \item \alert{alert} text
+      % \item \myexample{example} text
+   \end{itemize}
+
+   And also: \textbf{bold}, \emph{emph}, \textsc{textsc}
+
+\end{frame}
+
+\section{Second Section}
+
+\begin{frame}
+   \frametitle{Title}
+
+   blabla
+\end{frame}
+
+\appendix
+
+\begin{frame}[plain]
+    \usebeamertemplate*{last page}
+\end{frame}
+
+\tocframe{Appendices}
+
+\section{Appendix 1}
+
+\begin{frame}
+   \frametitle{Appendix 1}
+\end{frame}
+
+\section{Appendix 2}
+
+\begin{frame}
+   \frametitle{Appendix 2}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,400 @@
+\mode<presentation>
+
+% fonts
+\usefonttheme{professionalfonts} % turn off Beamer math replacements
+% set computer modern sans serif greeks and symbols
+\SetSymbolFont{letters}{normal}{OML}{cmssm}{m}{it}
+\SetSymbolFont{largesymbols}{normal}{OMX}{cmssex}{m}{n}
+\RequirePackage{helvet} % must be loaded before sfmath
+\RequirePackage{sfmath}
+\SetMathAlphabet{\mathbb}{normal}{U}{dsss}{m}{n}
+\RequirePackage[cal=zapfc, calscaled=1.15]{mathalfa}
+
+% layout and graphics
+\RequirePackage[T1]{fontenc} % seems necessary to get correct \textgreater
+\RequirePackage{enumitem}
+\RequirePackage{calc}
+\RequirePackage{array}
+\RequirePackage[absolute,overlay]{textpos}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+
+\newcommand*{\CEAi}{\raisebox{.25ex}{\includegraphics[height=.5ex]{graphics/bullet1.png}}}
+\newcommand*{\CEAii}{\raisebox{.25ex}{\includegraphics[height=.5ex]{graphics/bullet2.png}}}
+
+\newlength{\CEAilen} \setlength{\CEAilen}{\widthof{\CEAi}}
+\newlength{\CEAiilen} \setlength{\CEAiilen}{\widthof{\CEAii}}
+\newlength{\CEAilensep} \setlength{\CEAilensep}{\CEAilen+3mm}
+\newlength{\CEAiilensep} \setlength{\CEAiilensep}{\CEAiilen+3mm}
+\setlist[itemize,1]{label=\CEAi,labelsep=3mm,labelwidth=\CEAilen,leftmargin=\CEAilensep,itemindent=0pt}
+\setlist[itemize,2]{label=\CEAii,labelsep=3mm,labelwidth=\CEAiilen,leftmargin=\CEAiilensep,itemindent=0pt}
+
+\newcommand{\insertseminar}{}
+\newcommand{\insertshortseminar}{}
+\newcommand{\insertdepartment}{}
+\newcommand{\insertshortdepartment}{}
+\newcommand{\insertservice}{}
+\newcommand{\insertshortservice}{}
+\newcommand{\insertframetitlelogo}{}
+\newcommand{\inserttitlepagelogo}{}
+\newcommand{\inserttitlepagepicture}{}
+\newcommand{\insertCEAname}{}
+\newcommand{\insertCEAcenter}{}
+\newcommand{\insertaddr}{}
+\newcommand{\inserttel}{}
+\newcommand{\insertfax}{}
+\newcommand{\insertCEAstatus}{}
+\newcommand{\insertCEArcs}{}
+\newcommand{\insertCEAmerci}{}
+\newcommand{\insertCEAemail}{}
+
+\newcommand{\seminar}[2][\insertseminar]{
+    \renewcommand{\insertshortseminar}{#1}
+    \renewcommand{\insertseminar}{#2}
+}
+\newcommand{\department}[2][\insertdepartment]{
+    \renewcommand{\insertshortdepartment}{#1}
+    \renewcommand{\insertdepartment}{#2}
+}
+\newcommand{\service}[2][\insertservice]{
+    \renewcommand{\insertshortservice}{#1}
+    \renewcommand{\insertservice}{#2}
+}
+\newcommand{\CEAname}[1]{\renewcommand{\insertCEAname}{#1}}
+\newcommand{\CEAcenter}[1]{\renewcommand{\insertCEAcenter}{#1}}
+\newcommand{\addr}[1]{\renewcommand{\insertaddr}{#1}}
+\newcommand{\tel}[1]{\renewcommand{\inserttel}{#1}}
+\newcommand{\fax}[1]{\renewcommand{\insertfax}{#1}}
+\newcommand{\CEAstatus}[1]{\renewcommand{\insertCEAstatus}{#1}}
+\newcommand{\CEArcs}[1]{\renewcommand{\insertCEArcs}{#1}}
+\newcommand{\CEAemail}[1]{\renewcommand{\insertCEAemail}{#1}}
+\newcommand{\CEAmerci}[1]{\renewcommand{\insertCEAmerci}{#1}}
+
+\newcommand{\frametitlelogo}[1]{\renewcommand{\insertframetitlelogo}{#1}}
+\newcommand{\titlepagelogo}[1]{\renewcommand{\inserttitlepagelogo}{#1}}
+\newcommand{\titlepagepicture}[1]{\renewcommand{\inserttitlepagepicture}{#1}}
+
+% some length
+\newlength{\textleftmargin}
+\setlength{\textleftmargin}{9mm}
+\newlength{\textrightmargin}
+\setlength{\textrightmargin}{9mm}
+\newlength{\titlepagebannerwidth}
+\setlength{\titlepagebannerwidth}{0.6\paperwidth}
+\newlength{\frametitleheight}
+\setlength{\frametitleheight}{0.12\paperheight}
+\newlength{\frametitlemargin}
+\setlength{\frametitlemargin}{22mm}
+\newlength{\footlinesep}
+\setlength{\footlinesep}{3.5mm}
+\newlength{\lastpagebannerwidth}
+\setlength{\lastpagebannerwidth}{0.3\paperwidth}
+\newlength{\titlepagepicturewidth}
+\newlength{\titleverticalspace}
+
+\setbeamersize{sidebar width left=0pt,sidebar width right=0pt,
+    text margin left=\textleftmargin,text margin right=\textrightmargin}
+
+\makeatletter
+\newcommand\notsotiny{\@setfontsize\notsotiny\@vipt\@viipt}
+\makeatother
+
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{subtitle}{size=\large, series=\mdseries}
+\setbeamerfont{block title}{size=\normalsize}
+\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\large, series*={m}}
+\setbeamerfont{author}{size=\scriptsize}
+\setbeamerfont{date}{size=\scriptsize}
+\setbeamerfont{footline}{size=\notsotiny}
+\setbeamerfont{impressum}{size=\Tiny}
+\setbeamerfont{status}{size=\TINY}
+\setbeamerfont{section in toc}{series=\bfseries}
+\setbeamerfont{section number projected}{series=\bfseries, size=\large}
+
+% color theme
+\definecolor{CEAgray}{rgb}{.15,.15,.15}  % 38 38 38
+\definecolor{CEAlightgray}{rgb}{.55,.55,.55}  % 141 141 141
+\definecolor{CEAred}{rgb}{.89,.0,.10}   % 229 0 25
+\definecolor{CEAgreen}{rgb}{.59,.76,.12} % 150 195  30
+\definecolor{CEAblue}{rgb}{.24,.29,.51} % 62 74 131
+\setbeamercolor{title}{fg=CEAgray}
+\setbeamercolor{normal text}{fg=CEAgray}
+\setbeamercolor{frametitle}{fg=CEAred}
+\setbeamercolor{framesubtitle}{fg=CEAred}
+\setbeamercolor{structure}{fg=CEAred}
+\setbeamercolor{footline}{fg=CEAlightgray}
+\setbeamercolor{page number}{fg=CEAred}
+\setbeamercolor{impressum}{fg=white}
+\setbeamercolor{service}{fg=CEAblue}
+\setbeamercolor{alerted text}{fg=CEAred}
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{section number projected}{fg=CEAred,bg=white}
+\setbeamercolor*{block title}{fg=white,bg=black}
+\setbeamercolor*{block body}{fg=black,bg=black!5}
+\setbeamercolor*{block title alerted}{fg=white,bg=CEAred}
+\setbeamercolor*{block body alerted}{fg=CEAred,bg=CEAred!5}
+\setbeamercolor*{block title example}{fg=white,bg=CEAblue}
+\setbeamercolor*{block body example}{fg=CEAblue,bg=CEAblue!5}
+
+\setbeamertemplate{navigation symbols}{}
+% \setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{headline}{}
+
+% \setbeamertemplate{section in toc}[square]
+\setbeamertemplate{section in toc}{%
+    \leavevmode\leftskip=1.75ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor[bg]{section number projected}%
+    \vrule width2.25ex height1.85ex depth.4ex%
+    \hskip-2.25ex%
+    \hbox to2.25ex{\hfil\color{fg}\inserttocsectionnumber.\hfil}}%
+  \kern1.25ex\inserttocsection\par}
+
+\pgfdeclareimage[interpolate=true,width=\paperwidth,height=\paperheight]{background1}{graphics/background-1.pdf}
+\pgfdeclareimage[interpolate=true,width=\paperwidth,height=\paperheight]{background2}{graphics/background-2.pdf}
+\pgfdeclareimage[interpolate=true,width=\paperwidth,height=\paperheight]{backgroundwhite}{graphics/background-white-forphoto.pdf}
+
+\newcommand{\insertcealogo}{\includegraphics[height=4ex]{graphics/LOGO-CEA_ORIGINAL.pdf}}
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+        \useasboundingbox (0,0) rectangle (\the\paperwidth,\the\paperheight);
+        \newcommand\tempa{}
+        \ifx\inserttitlepagepicture\tempa%
+        \pgftext[at=\pgfpoint{0}{0},left,base]{\pgfuseimage{background1}};
+    \else%
+        \pgfdeclareimage[interpolate=true,width=\paperwidth,height=\paperheight]{titlepicture}{\inserttitlepagepicture}
+    \pgftext[at=\pgfpoint{0}{0},left,base]{\pgfuseimage{titlepicture}};
+     \pgftext[at=\pgfpoint{0}{0},left,base]{\pgfuseimage{backgroundwhite}};
+    \fi%
+  \ifnum\thepage>1\relax%
+  \useasboundingbox (0,0) rectangle (\the\paperwidth,\the\paperheight);
+    \pgftext[at=\pgfpoint{0}{0},left,base]{\pgfuseimage{background2}};
+  \fi
+  \end{tikzpicture}
+}
+
+\defbeamertemplate*{title page}{CEA}[1][]{
+    \begin{textblock*}{\widthof{\inserttitlepagelogo}}[0,2.2](\textleftmargin,\paperheight)
+        \vfill \inserttitlepagelogo \vspace*{12.5mm}
+    \end{textblock*}
+
+    % set title banner width depending on whether we have a picture or not
+    \newcommand\tempa{}
+    \ifx\inserttitlepagepicture\tempa%
+    \setlength{\titleverticalspace}{2.5ex}
+    \else%
+    \setlength{\titlepagepicturewidth}{0.4\paperwidth}
+    \setlength{\titlepagebannerwidth}{0.4\paperwidth}
+    \setlength{\titleverticalspace}{1.5ex}
+    \fi%
+
+    \begin{textblock*}{\titlepagebannerwidth}[0,-0.15](\textleftmargin,.37\paperheight)
+        \begin{beamercolorbox}[left,#1]{title}
+            \usebeamerfont{title}\inserttitle
+        \end{beamercolorbox}%
+        \ifx\insertsubtitle\@empty%
+        \vspace{3ex}
+        \else%
+            \vspace{1.5ex}
+            \begin{beamercolorbox}[left,#1]{subtitle}
+                \usebeamerfont{subtitle}\insertsubtitle
+            \end{beamercolorbox}%
+        \fi%
+        \vspace{\titleverticalspace}
+        \begin{beamercolorbox}[left,#1]{author}
+            \usebeamerfont{author}\insertauthor
+        \end{beamercolorbox}%
+        \vspace{\titleverticalspace}
+        \begin{beamercolorbox}[left,#1]{seminar}
+            \usebeamerfont{seminar}\insertseminar
+        \end{beamercolorbox}%
+        \vspace{1ex}
+        \begin{beamercolorbox}[left,#1]{date}
+            \usebeamerfont{date}\insertdate
+        \end{beamercolorbox}%
+    \end{textblock*}
+}
+
+\defbeamertemplate*{frametitle}{CEA}[1][]{
+    \begin{textblock*}{\paperwidth}[0.08,.9](\frametitlemargin,.8\frametitleheight)
+        \begin{beamercolorbox}{frametitle}
+            \usebeamerfont{frametitle}\insertframetitle
+        \end{beamercolorbox}
+    \end{textblock*}
+    \begin{textblock*}{\paperwidth}[1.17,1.1](\paperwidth,.8\frametitleheight)
+        \hfill \insertframetitlelogo \hspace*{2mm}
+    \end{textblock*}
+    \ifx\insertframesubtitle\@empty%
+        \vspace{1\frametitleheight}
+    \else% subtitle height is .6 title height
+        \begin{textblock*}{\paperwidth}[0,.5](\frametitlemargin,1.5\frametitleheight)
+            \begin{beamercolorbox}{framesubtitle}
+                \usebeamerfont*{framesubtitle}\insertframesubtitle
+            \end{beamercolorbox}%
+        \end{textblock*}
+        \vspace{1.3\frametitleheight} % for some reasons (why?), the full 1.6 is too big
+    \fi
+}
+
+\defbeamertemplate*{footline}{CEA}[1][]{
+    \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=\footlinesep,leftskip=0.4\textleftmargin,rightskip=.3cm]{footline}%
+     \raisebox{-1.2ex}{\insertcealogo}\hspace{5pt}
+        \usebeamerfont{footline}
+        \insertshortseminar{}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=\footlinesep,right,leftskip=.3cm,rightskip=0.85\textrightmargin,#1]{footline}%
+    \usebeamerfont{footline}
+        \hfill\insertshortdate{} \hspace{20pt} \textbf{\usebeamercolor[fg]{page number}\insertframenumber{} / \inserttotalframenumber}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+\defbeamertemplate*{last page}{CEA}[1][]{
+    \begin{textblock*}{\paperwidth}[1,0](\paperwidth,0pt)
+        \includegraphics[height=\paperheight]{graphics/background-1.pdf}
+    \end{textblock*}
+    \begin{textblock*}{\widthof{\inserttitlepagelogo}}[.26,2.2](.5\titlepagebannerwidth,\paperheight)
+        \vfill \inserttitlepagelogo \vspace*{12.5mm}
+    \end{textblock*}
+    \begin{textblock*}{0.6\paperwidth}[0.9,-3](0.6\paperwidth,.37\paperheight)
+        \begin{beamercolorbox}[left,#1]{title}
+            \usebeamerfont{title}\Large\insertCEAmerci
+        \end{beamercolorbox}%
+    \end{textblock*}
+
+    \begin{textblock*}{0.6\paperwidth}[-0.15,-2](0.6\paperwidth,.37\paperheight)
+        \begin{beamercolorbox}[left,#1]{author}
+            \usebeamerfont{author}\textbf{\insertCEAcenter}\\\insertaddr\\\insertCEAemail
+        \end{beamercolorbox}%
+    \end{textblock*}
+}
+
+\newcommand{\tocframe}[1]{
+  \begin{frame}
+  \frametitle{#1}
+    \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{graphics/background-toc}
+            };
+        \end{tikzpicture}
+
+        \tableofcontents
+  \end{frame}
+}
+
+\newcommand{\tocframecurrent}[1]{
+  \begin{frame}
+  \frametitle{#1}
+    \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{graphics/background-toc}
+            };
+        \end{tikzpicture}
+
+        \tableofcontents[current]
+  \end{frame}
+}
+
+\newcommand{\sepframewhite}[1]{
+\begin{frame}[c]
+
+    \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{graphics/background-white}
+            };
+        \end{tikzpicture}
+
+        \begin{textblock*}{0.7\paperwidth}[0,0](0.15\paperwidth,0.45\paperheight)
+        \textbf{\Huge {\color{CEAred}\insertsectionnumber.} \insertsection}
+
+        \vspace{1ex}\hspace{\widthof{\textbf{\Huge\insertsectionnumber. }}}#1
+        \end{textblock*}
+
+  \end{frame}
+}
+
+\newcommand{\sepframered}[1]{
+\setbeamercolor{footline}{fg=white}
+\setbeamercolor{page number}{fg=white}
+\renewcommand{\insertcealogo}{\includegraphics[height=4ex]{graphics/LOGO-CEA_ROUGE-SUR-BLANC.pdf}}
+\begin{frame}[c]
+
+    \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{graphics/background-red}
+            };
+        \end{tikzpicture}
+
+        \begin{textblock*}{0.7\paperwidth}[0,0](0.15\paperwidth,0.45\paperheight)
+        {\color{white}
+        \textbf{\Huge \insertsectionnumber. \insertsection}
+
+        \vspace{1ex}\hspace{\widthof{\textbf{\Huge\insertsectionnumber. }}}#1
+        }
+        \end{textblock*}
+
+  \end{frame}
+\setbeamercolor{footline}{fg=CEAlightgray}
+\setbeamercolor{page number}{fg=CEAred}
+\renewcommand{\insertcealogo}{\includegraphics[height=4ex]{graphics/LOGO-CEA_ORIGINAL.pdf}}
+}
+
+\newcommand{\sepframeblack}[1]{
+\setbeamercolor{footline}{fg=white}
+\setbeamercolor{page number}{fg=white}
+\begin{frame}[c]
+
+    \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{graphics/background-black}
+            };
+        \end{tikzpicture}
+
+        \begin{textblock*}{0.7\paperwidth}[0,0](0.15\paperwidth,0.45\paperheight)
+        {\color{white}
+        \textbf{\Huge {\color{CEAred} \insertsectionnumber.} \insertsection}
+
+        \vspace{1ex}\hspace{\widthof{\textbf{\Huge\insertsectionnumber. }}}#1
+        }
+        \end{textblock*}
+
+  \end{frame}
+\setbeamercolor{footline}{fg=CEAlightgray}
+\setbeamercolor{page number}{fg=CEAred}
+}
+
+\newcommand{\sepframeblue}[1]{
+\setbeamercolor{footline}{fg=white}
+\setbeamercolor{page number}{fg=white}
+\begin{frame}[c]
+
+    \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{graphics/background-blue}
+            };
+        \end{tikzpicture}
+
+        \begin{textblock*}{0.7\paperwidth}[0,0](0.15\paperwidth,0.45\paperheight)
+        {\color{white}
+        \textbf{\Huge \insertsectionnumber. \insertsection}
+
+        \vspace{1ex}\hspace{\widthof{\textbf{\Huge\insertsectionnumber. }}}#1
+        }
+        \end{textblock*}
+
+  \end{frame}
+\setbeamercolor{footline}{fg=CEAlightgray}
+\setbeamercolor{page number}{fg=CEAred}
+}
+
+\mode<all>
+
+
+\newcommand{\myexample}[1]{\textcolor{exampleTextColor}{#1}}
+
+\input{appendixnumberbeamer.sty}
