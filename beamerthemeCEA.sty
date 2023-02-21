@@ -83,7 +83,7 @@
 \newlength{\titlepagebannerwidth}
 \setlength{\titlepagebannerwidth}{0.6\paperwidth}
 \newlength{\frametitleheight}
-\setlength{\frametitleheight}{0.11\paperheight}
+\setlength{\frametitleheight}{0.1\paperheight}
 \newlength{\frametitlemargin}
 \setlength{\frametitlemargin}{22mm}
 \newlength{\footlinesep}
@@ -222,7 +222,7 @@
 }
 
 \defbeamertemplate*{frametitle}{CEA}[1][]{
-    \begin{textblock*}{\paperwidth}[0.08,.9](\frametitlemargin,.8\frametitleheight)
+    \begin{textblock*}{\paperwidth}[0.08,0.75](\frametitlemargin,.8\frametitleheight)
         \begin{beamercolorbox}{frametitle}
             \usebeamerfont{frametitle}\insertframetitle
         \end{beamercolorbox}
@@ -233,12 +233,12 @@
     \ifx\insertframesubtitle\@empty%
         \vspace{1\frametitleheight}
     \else% subtitle height is .6 title height
-        \begin{textblock*}{\paperwidth}[0,.5](\frametitlemargin,1.5\frametitleheight)
+        \begin{textblock*}{\paperwidth}[0,.5](\frametitlemargin,1.3\frametitleheight)
             \begin{beamercolorbox}{framesubtitle}
                 \usebeamerfont*{framesubtitle}\insertframesubtitle
             \end{beamercolorbox}%
         \end{textblock*}
-        \vspace{1.3\frametitleheight} % for some reasons (why?), the full 1.6 is too big
+        \vspace{1.1\frametitleheight} % for some reasons (why?), the full 1.6 is too big
     \fi
 }
 
