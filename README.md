@@ -20,6 +20,9 @@ Le CEA recommande d'utiliser Arial, mais il est difficile d'inclure cette police
 ```
 * Les diapositives additionnelles peuvent être séparées de la présentation principale avec la commande `\appendix`. De cette manière, elles ne seront pas comptées dans le compteur principal apparaissant dans le pied-de-page.
 
+### Astuces
+* Si on ne désire pas de page de titre, pour avoir le bon fond sur la première page, il faut ajouter `\setcounter{page}{2}` avant la première `frame`.
+
 ### Remerciements
 
 Ce modèle (non officiel) est adapté de https://gitlab.com/1a7r0ch3/CEA (qui implémente la charte graphique précédente).
@@ -44,6 +47,9 @@ CEA recommends using Arial, but we found it hard to include it in a consistent c
 \end{frame}
 ```
 * Backup slides can be separated from the main slides with the command `\appendix`. In this way, they will not be included into the main page counter appearing in the footer.
+
+### Tips
+* If there should be no title page, in order to get the right background in the first page, one needs to add `\setcounter{page}{2}` right before the first `frame`.
 
 ### Acknowledgements
 
