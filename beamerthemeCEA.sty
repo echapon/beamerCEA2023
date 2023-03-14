@@ -12,7 +12,7 @@
 
 % layout and graphics
 \RequirePackage[T1]{fontenc} % seems necessary to get correct \textgreater
-\RequirePackage{enumitem}
+% \RequirePackage{enumitem} % incompatible with beamer
 \RequirePackage{calc}
 \RequirePackage{array}
 \RequirePackage[absolute,overlay]{textpos}
@@ -27,8 +27,10 @@
 \newlength{\CEAiilen} \setlength{\CEAiilen}{\widthof{\CEAii}}
 \newlength{\CEAilensep} \setlength{\CEAilensep}{\CEAilen+3mm}
 \newlength{\CEAiilensep} \setlength{\CEAiilensep}{\CEAiilen+3mm}
-\setlist[itemize,1]{label=\CEAi,labelsep=3mm,labelwidth=\CEAilen,leftmargin=\CEAilensep,itemindent=0pt}
-\setlist[itemize,2]{label=\CEAii,labelsep=3mm,labelwidth=\CEAiilen,leftmargin=\CEAiilensep,itemindent=0pt}
+% \setlist[itemize,1]{label=\CEAi,labelsep=3mm,labelwidth=\CEAilen,leftmargin=\CEAilensep,itemindent=0pt} % enumitem incompatible with beamer
+% \setlist[itemize,2]{label=\CEAii,labelsep=3mm,labelwidth=\CEAiilen,leftmargin=\CEAiilensep,itemindent=0pt} % enumitem incompatible with beamer
+\setbeamertemplate{itemize item}{\tiny\raise1pt\hbox{\donotcoloroutermaths$\blacksquare$}}
+\setbeamertemplate{itemize subitem}{\tiny\raise0.5pt\hbox{\textcolor{black}{$\blacksquare$}}}
 
 \newcommand{\insertseminar}{}
 \newcommand{\insertshortseminar}{}
